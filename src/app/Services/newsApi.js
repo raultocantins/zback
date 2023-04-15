@@ -16,9 +16,6 @@ class NewsApi {
         "sort-direction": "desc",
         language: "pt"
       },
-      headers: {
-        'x-api-key': KEY_API
-      }
     };
     var result = await axios.request(options);
     return result.data;
