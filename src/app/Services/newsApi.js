@@ -10,7 +10,6 @@ class NewsApi {
       params: {
         "api-key": KEY_API,
         text: filter,
-        language: 'pt,en',
         number: pagesize,
         offset: (parseInt(pagesize) * parseInt(page)).toString(),
         sort: "publish-time",
