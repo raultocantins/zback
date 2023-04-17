@@ -3,7 +3,8 @@ const KEY_API = process.env.KEY_API || "";
 class NewsApi {
   constructor() {
   }
-  getNewsByFilter = async ({ filter, page, pagesize }) => {
+  getNewsByFilter = async ({ filter, page, pagesize, language }) => {
+    var d = new Date();
     var options = {
       method: 'GET',
       url: 'https://api.worldnewsapi.com/search-news',
@@ -14,7 +15,8 @@ class NewsApi {
         offset: (parseInt(pagesize) * parseInt(page)).toString(),
         sort: "publish-time",
         "sort-direction": "desc",
-        language: "pt"
+        "earliest-publish-date": new Date((new Date().setDate(d.getDate() - 30))).toISOString(),
+        language: language
       },
     };
     var result = await axios.request(options);

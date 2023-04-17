@@ -2,9 +2,9 @@ const newsApi = require("../Services/newsApi");
 
 class NewsController {
   async getNews(req, res) {
-    const { filter, page, pagesize } = req.headers;
+    const { filter, page, pagesize, language } = req.headers;
     try {
-      var result = await newsApi.getNewsByFilter({ filter, page, pagesize })
+      var result = await newsApi.getNewsByFilter({ filter, page, pagesize, language })
 
       res.status(200).json(result);
     } catch (error) {
